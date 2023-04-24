@@ -181,6 +181,10 @@ h2 {
   position: relative;
 }
 
+.menu-underline a {
+  color: var(--interaction-color);
+}
+
 .menu-underline::after {
   content: "";
   position: absolute;
@@ -190,6 +194,11 @@ h2 {
   background-color: var(--interaction-color);
   display: block;
   margin-top: 28px;
+}
+
+.menu-style::after {
+  content: "";
+  color: var(--interaction-color);
 }
 
 .project-name {
@@ -221,6 +230,8 @@ h2 {
 }
 
 .contact-header {
+  display: flex;
+  align-items: center;
   font-size: 14px;
   line-height: 1.14;
   font-weight: 500;
@@ -520,7 +531,7 @@ h2 {
   align-items: center;
   width: 44px;
   border-radius: 50%;
-  background-color: none;
+  background-color: var(--interaction-color-2);
   padding: 12px 12px;
   fill: #afb1b8;
 }
@@ -565,8 +576,8 @@ h2 {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.overlay-box:hover .overlay,
-.overlay-box:focus .overlay {
+.project-box:hover .overlay,
+.project-box:focus .overlay {
   transform: translateY(0);
 }
 
@@ -602,6 +613,12 @@ h2 {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  transform: scale(1);
+  transition: transform 1s ease-in;
+}
+
+.is-hidden .modal {
+  transform: scale(0);
 }
 
 .backdrop {
@@ -617,6 +634,8 @@ h2 {
   pointer-events: none;
   visibility: hidden;
   opacity: 0px;
+  transition: opacity 1s;
+  transition: visibility 1s;
 }
 
 .btn-close {
@@ -633,6 +652,12 @@ h2 {
   background: #fff;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-close:hover,
+.btn-close:focus {
+  border: 1px solid var(--interaction-color);
+  fill: var(--interaction-color);
 }
 
 .services-element {
